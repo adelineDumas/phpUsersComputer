@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<h1>Liste des Ordinateurs</h1>
+<form method="get" name="formulaire" action="{{ url('computer.new') }}">
+  <button type="submit">Ajouter</button>
+</form>
+<table class="table">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>NOM</th>
+    <th>MARQUE</th>
+    <th>OS</th>
+    <th>Utilisateur</th>
+  </tr>
+</thead>
+<tbdoy>
+{% for comp in computer %}
+   <tr>
+     <td>{{comp.id}}</td>
+     <td>{{comp.nom}}</td>
+     <td>{{comp.marque}}</td>
+     <td>{{comp.os}}</td>
+     <td>{{comp.nomUser}}</td>
+     <td>
+       <form method="post" name="formulaire" action="{{ url('computer.delete', {id: comp.id}) }}">
+            <button id="boutonSupprimer" type="submit">Supprimer</button>
+        </form>
+      </td>
+      <td>
+        <form method="get" name="formulaire" action="{{ url('computer.edit', {id: comp.id}) }}">
+          <button id="boutonModifier" type="submit">Modifier</button>
+        </form>
+      </td>
+   </tr>
+{% endfor %}
+</tbdoy>
+</table>
+
+<a href="{{url('users.list')}}" > Voir les utilisateurs </a>

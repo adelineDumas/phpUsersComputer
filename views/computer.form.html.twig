@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<h2>Formulaire</h2>
+
+{% if computer is defined %}
+<form method="post" name="formulaire" action="{{ url('computer.save', {id: computer.id}) }}">
+
+    <input type="hidden" name="id" value={{computer.id}} />
+
+    <label for="name">Nom : </label>
+    <input type="text" name="nom" value={{computer.nom}} />
+
+    <label for="name">Marque : </label>
+    <input type="text" name="marque" value={{computer.marque}}  />
+
+    <label for="name">OS : </label>
+    <input type="text" name="os" value={{computer.os}}  />
+
+    <label for="name">Identifiant Utilisateur : </label>
+    <input type="text" name="idUser" value={{computer.idUser}}  />
+    {% else %}
+
+<form method="post" name="formulaire" action="{{ url('computer.save') }}">
+    <label for="name">Nom : </label>
+    <input type="text" name="nom" />
+
+    <label for="name">Marque : </label>
+    <input type="text" name="marque" />
+
+    <label for="name">OS : </label>
+    <input type="text" name="os" />
+
+    <label for="name">Identifiant Utilisateur : </label>
+    <input type="text" name="idUser" />
+    {% endif %}
+
+    <button type="submit">Envoyer</button>
+
+</form>
