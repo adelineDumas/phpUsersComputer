@@ -1,7 +1,5 @@
-#Initiation au PHP
+#Projet PHP 
 
-##Présenatation du PHP
+#Création d'utilisateurs et d'ordinateurs via des formulaires.
 
-##Présentation du micro-framework Silex et de composer
-
-##Installation des différents composants à l'aide de composer
+#Un utilisateur peut avoir plusieurs ordinateurs. 
